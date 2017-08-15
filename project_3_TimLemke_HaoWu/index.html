@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EMOJI MATCH!</title>
+	<!--ADD SOME FONTS!-->
+	<script src="https://use.fontawesome.com/26ff3de810.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+	<link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="holder">
+			<main>
+				<section class="controls">
+					<h1>EMOJIMATCH!</h1>
+					<div class="buttonContainer">
+						<h3>SELECT A LEVEL!</h3>
+						<div class="difficulity">
+							<button>EASY</button>
+							<button>MEDIUM</button>
+							<button>HARD</button>
+						</div>
+					</div>
+
+					<div class="gameStats">
+						<div class="timer">
+							<div id="timerCountdown"></div>
+						</div>
+						<div class="score">
+							<div id="scoreTotal"></div>
+						</div>
+					</div>
+				</section>
+
+				<section class="gameboard">
+					<ul id="board"></ul>
+				</section>
+			</main>
+		
+			<footer>
+				<div class="creators">
+					<p>Created by Tim Lemke and Hao Wu</p>
+					<!--Share on Twitter-->
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-square-o fa-stack-2x"></i>
+					  <i class="fa fa-twitter fa-stack-1x"></i>
+					</span>
+				</div>
+				<!--SWEET ALERT PLUGIN for jquery-->
+				<!--CARD ANIMATIONS BY ANIMATE.CSS?-->
+			</footer>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script src="scripts/script.js"></script>
+</body>
+</html>
