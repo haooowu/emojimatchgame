@@ -1,6 +1,8 @@
 var emojiSet = [];
 var counter = 0;
 var compare = [];
+var minutes = 2;
+var seconds = 60;
 
 $(function() {
 	//grab emoji from 😀 up to 🙄, total 69 emojis faces
@@ -85,64 +87,43 @@ $(function() {
 			}
 		}
 	});
-	console.log($("#board > li.correct").length)
-
-		var countDown = function() {
-	   
-		    var minutes = 1;
-		    var seconds = 59;
-		    var leadingZero = function(n) {
-		        if (n < 10 && n >= 0)
-		            return '0' + n;
-		        else
-		            return n;
-		    };
-		    var timer = setInterval(function() {
-		    	if (seconds === 0) {
-		    		minutes--;
-		    		seconds = 59;
-		    	} else {
-		    		seconds--;
-		    	}
-	 
-		        if (minutes || seconds >= 0) {
-		        	$('#timerCountdown').html(`<p>${minutes}:${leadingZero(seconds)}</p>`);
-		        }
-		        else if (minutes === 0 && seconds === 0) {
-		            alert('sorry, out of time');
-		            clearInterval(timer);
-		        }
-		    }, 1000);
-	    };
-
-	    countDown();
-
+	console.log($("#board > li.correct").length);
+	/** Docstring **
+	* countDown for three minuites 
+	*/
+	var countDown = function() {
+		//setinterval for 1 second 
+	    var timer = setInterval(function() {
+	    	//when 60 sec passed, minute - 1, second resets to 59
+	    	if (seconds === 0) {
+	    		minutes -= 1;
+	    		seconds = 59;
+	    	} else {
+	    		seconds -= 1;
+	    	}
+	    	// if mintes is greater than 0, OR, seconds is greater than 0
+	        if (minutes > 0 || seconds > 0) {
+	        	$('#timerCountdown').html(`<p>${minutes}:${leadingZero(seconds)}</p>`);
+	        }
+	        //else times up
+	        else if (minutes === 0 && seconds === 0) {
+	        	//add the 0
+	        	$('#timerCountdown').html(`<p>${minutes}:${leadingZero(seconds)}</p>`);
+	        	// need another sub interval, or else alerts at 0:01 instead of 0:00
+	           	clearInterval(timer);
+	            let subTimer = setInterval(function(){
+	            	alert("sorry out of time")
+	            	clearInterval(subTimer);
+	            }, 0)
+	        }
+	    }, 1000);
+    };
+    //helper function for adding leading zero when 
+    var leadingZero = function(n) {
+        if (n < 10 && n >= 0)
+            return '0' + n;
+        else
+            return n;
+    };
+    countDown();
 });
-
-/* clip() handler with jQuery plugin (https://nnattawat.github.io/flip/#back)
-// $(".card").flip()
-// var flag = true;
-// $(".card").on('flip:done',function(){
-// 	if (flag){
-// 		$(this).flip(true);
-// 		//triggger timer function
-// 		console.log(flag);
-// 		flag = false;
-// 	} else {
-// 		$(".card").flip(false);
-// 		flag = true;
-// 	}
-// });
-
-/** Docstring **
-* simple counter
-*/
-// var count = 60;
-// //https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
-// var countdown = setInterval(function() {
-// 	count = count - 1;
-// 	console.log(count);
-// 	if (count === 0) {
-// 		clearInterval(countdown);
-// 	}
-// }, 1000);

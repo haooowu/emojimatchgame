@@ -41,8 +41,6 @@ main {
 	border: 5px outset black;
 	border-radius: 15px;
 	background-color: white;
-	// padding-bottom: 20px;
-
 	h1 {
 		font-size: 53px;
 		padding-top: 7px;
@@ -64,8 +62,6 @@ main {
 		font-family: 'Fredoka One', cursive;
 		font-size: 28px;
 		text-align: center;
-
-		// margin-right: 1px;
 	}
 }
 
@@ -82,7 +78,6 @@ main {
 	p {
 		font-family: 'Fredoka One', cursive;
 		font-size: 28px;
-		// margin-right: 1px;
 	}
 }
 
@@ -156,8 +151,6 @@ main {
 	}
 }
 
-
-
 footer{
 	padding:5px 10px;
 	.creators{
@@ -165,7 +158,7 @@ footer{
 		display: flex;
 		align-items: center;
 		span{
-  			margin-left: auto;
+			margin-left: auto;
 		}
 	}
 }
