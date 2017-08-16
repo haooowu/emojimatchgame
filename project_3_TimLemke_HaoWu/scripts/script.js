@@ -86,6 +86,35 @@ $(function() {
 		}
 	});
 	console.log($("#board > li.correct").length)
+
+		var timer = function() {
+	   
+		    var minutes = 1;
+		    var seconds = 59;
+		    var leadingZero = function(n) {
+		        if (n < 10 && n >= 0)
+		            return '0' + n;
+		        else
+		            return n;
+		    };
+		    var timer = setInterval(function() {
+		    	if (seconds === 0) {
+		    		minutes--;
+		    		seconds = 59;
+		    	} else {
+		    		seconds--;
+		    	}
+	 
+		        if (minutes || seconds >= 0) {
+		        	$('#timerCountdown').html(`<p>${minutes}:${leadingZero(seconds)}</p>`);
+		        }
+		        else if (minutes && seconds === 0) {
+		            alert('sorry, out of time');
+		            clearInterval(counter);
+		        }
+		    }, 1000);
+	    };
+
 });
 
 /* clip() handler with jQuery plugin (https://nnattawat.github.io/flip/#back)
