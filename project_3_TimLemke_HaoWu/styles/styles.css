@@ -171,11 +171,17 @@ main {
   text-align: center; }
 
 .controls {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
   position: relative;
   border: 5px outset black;
   border-radius: 15px;
-  background-color: white;
-  padding-bottom: 20px; }
+  background-color: white; }
   .controls h1 {
     font-size: 53px;
     padding-top: 7px;
@@ -184,6 +190,47 @@ main {
     color: #ffcc33;
     text-shadow: 3px 3px 3px black;
     z-index: 1; }
+
+.timer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100px; }
+  .timer p {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    text-align: center; }
+
+.titleAndButtons {
+  padding-bottom: 20px;
+  padding-right: -20px; }
+
+.gameStats {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100px; }
+  .gameStats p {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px; }
 
 .buttonContainer {
   max-width: 500px;

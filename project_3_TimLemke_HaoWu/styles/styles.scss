@@ -35,11 +35,13 @@ main {
 }
 
 .controls {
+	display: flex;
+	justify-content: space-around;
 	position: relative;
 	border: 5px outset black;
 	border-radius: 15px;
 	background-color: white;
-	padding-bottom: 20px;
+	// padding-bottom: 20px;
 
 	h1 {
 		font-size: 53px;
@@ -49,6 +51,38 @@ main {
 		color: #ffcc33;
 		text-shadow: 3px 3px 3px black;
 		z-index: 1;
+	}
+}
+
+.timer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+
+	p {
+		font-family: 'Fredoka One', cursive;
+		font-size: 28px;
+		text-align: center;
+
+		// margin-right: 1px;
+	}
+}
+
+.titleAndButtons {
+	padding-bottom: 20px;
+	padding-right: -20px;
+}
+
+.gameStats {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	p {
+		font-family: 'Fredoka One', cursive;
+		font-size: 28px;
+		// margin-right: 1px;
 	}
 }
 
