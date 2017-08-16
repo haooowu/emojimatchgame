@@ -87,7 +87,7 @@ $(function() {
 	});
 	console.log($("#board > li.correct").length)
 
-		var timer = function() {
+		var countDown = function() {
 	   
 		    var minutes = 1;
 		    var seconds = 59;
@@ -108,12 +108,14 @@ $(function() {
 		        if (minutes || seconds >= 0) {
 		        	$('#timerCountdown').html(`<p>${minutes}:${leadingZero(seconds)}</p>`);
 		        }
-		        else if (minutes && seconds === 0) {
+		        else if (minutes === 0 && seconds === 0) {
 		            alert('sorry, out of time');
-		            clearInterval(counter);
+		            clearInterval(timer);
 		        }
 		    }, 1000);
 	    };
+
+	    countDown();
 
 });
 

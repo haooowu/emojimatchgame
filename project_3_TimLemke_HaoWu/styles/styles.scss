@@ -28,17 +28,22 @@ body {
 }
 
 main {
-	background-color: #ffffff;
-	border: 5px outset black;
+	// background-color: #ffffff;
+	// border: 5px outset black;
 	border-radius: 15px;
 	text-align: center;
 }
 
 .controls {
 	position: relative;
+	border: 5px outset black;
+	border-radius: 15px;
+	background-color: white;
+	padding-bottom: 20px;
+
 	h1 {
 		font-size: 53px;
-		padding-top: 3%;
+		padding-top: 7px;
 		padding-bottom: 10px;
 		font-family: 'Fredoka One', cursive;
 		color: #ffcc33;
@@ -66,7 +71,11 @@ main {
 }
 
 .gameboard {
+	margin-top: 10px;
 	padding-bottom: 20px;
+	border: 5px outset black;
+	border-radius: 15px;
+	background-color: white;
 	ul {
 		margin: 0 auto;
 		padding: 0;
@@ -112,6 +121,8 @@ main {
 		//
 	}
 }
+
+
 
 footer{
 	padding:5px 10px;
