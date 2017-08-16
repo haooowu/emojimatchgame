@@ -139,9 +139,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 /**
 * todo: mixin to control responsive font size
 * color-set: https://color.adobe.com/explore/?filter=newest
-* set height equals to width
-//https://www.emoji.codes/
-//https://github.com/emojione/emojione
 */
 body {
   background-image: url("../assets/background.png");
@@ -230,7 +227,7 @@ main {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .gameboard ul div.emojicard {
+    .gameboard ul li.emojicard {
       font-size: 50px;
       -webkit-box-flex: 0;
       -webkit-flex: 0 0 15%;
@@ -242,7 +239,7 @@ main {
       -webkit-transition: all 0.3s linear;
       -o-transition: all 0.3s linear;
       transition: all 0.3s linear; }
-      .gameboard ul div.emojicard .front {
+      .gameboard ul li.emojicard .front {
         border: 3px solid black;
         border-radius: 8px;
         position: absolute;
@@ -251,8 +248,9 @@ main {
         height: 100%;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden; }
-      .gameboard ul div.emojicard .back {
+      .gameboard ul li.emojicard .back {
         border: 3px solid #ffcc33;
+        background-color: #ffcc33;
         border-radius: 8px;
         display: block;
         -webkit-transform: rotateY(180deg);
@@ -261,19 +259,11 @@ main {
         box-sizing: border-box;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden; }
-    .gameboard ul div.flip {
+    .gameboard ul .flip, .gameboard ul .correct {
       -webkit-transform: rotateY(180deg);
       transform: rotateY(180deg); }
-  .gameboard li {
-    background-color: #ffcc33;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center; }
+    .gameboard ul .off {
+      pointer-events: none; }
 
 footer {
   padding: 5px 10px; }
