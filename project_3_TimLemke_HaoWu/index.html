@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>EMOJI MATCH!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!--TODO: FONTS, RWD, COLOR THEME-->
 	<!--TODO: JS prevent refresh-->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,15 +27,14 @@
 						<h1>EMOJIMATCH &#x1F914;</h1>
 						<div class="buttonContainer">
 							<div class="difficulity">
-								<button>EASY</button>
-								<button>MEDIUM</button>
-								<button>HARD</button>
+								<button class="diffBtn" id="normalMode">NORMAL</button>
+								<button class="diffBtn" id="hardMode">HARDCORE</button>
 							</div>
 						</div>
 					</div>
 					<div class="timer">
 						<h3>Time</h3>
-						<div id="timerCountdown">3:00</div>
+						<div id="timerCountdown">2:00</div>
 					</div>
 				</section>
 				<section class="gameboard">
@@ -60,22 +60,19 @@
 				<div class="creators">
 					<p>Created by Tim Lemke and Hao Wu</p>
 					<!--Share on Twitter-->
-					
-					
-					  <a class="twitter-share-button"
-					  	  href="https://twitter.com/share"
-					  	  data-size="large"
-					  	  data-text="custom share text"
-					  	  data-url="https://dev.twitter.com/web/tweet-button"
-					  	  data-hashtags="example,demo"
-					  	  data-via="twitterdev"
-					  	  data-related="twitterapi,twitter">
-					  	<!-- <span class="fa-stack fa-lg">
-					  	  <i class="fa fa-square-o fa-stack-2x"></i> -->
-					  	  <button><i class="fa fa-twitter" aria-hidden="true"></i></button>
-					  	<!--   <i class="fa fa-twitter fa-stack-1x"></i> -->
-						<!-- </span> -->
-					  </a>
+					<a class="twitter-share-button"
+						href="https://twitter.com/share"
+						data-size="large"
+						data-text="custom share text"
+						data-url="https://dev.twitter.com/web/tweet-button"
+						data-hashtags="example,demo"
+						data-via="twitterdev"
+						data-related="twitterapi,twitter">
+						<span class="fa-stack fa-lg">
+							<i class="fa fa-square-o fa-stack-2x"></i>
+							<i class="fa fa-twitter fa-stack-1x"></i>
+						</span>
+					</a>
 				</div>
 			</footer>
 		</div>
