@@ -204,8 +204,13 @@ main {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100px; }
-  .timer p {
+  width: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .timer p, .timer div {
     font-family: 'Fredoka One', cursive;
     font-size: 28px;
     text-align: center; }

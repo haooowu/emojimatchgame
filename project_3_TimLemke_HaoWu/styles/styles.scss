@@ -57,8 +57,8 @@ main {
 	justify-content: center;
 	align-items: center;
 	width: 100px;
-
-	p {
+	flex-direction: column;
+	p, div {
 		font-family: 'Fredoka One', cursive;
 		font-size: 28px;
 		text-align: center;

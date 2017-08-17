@@ -3,7 +3,7 @@ var counter = 0;
 var compare = [];
 var minutes = 2;
 var seconds = 60;
-
+var flag = true;
 $(function() {
 	//grab emoji from 😀 up to 🙄, total 69 emojis faces
 	for (var i = 0x1F600; i <= 0x1F644; i += 1){
@@ -45,8 +45,13 @@ $(function() {
 	* TODO: Trigger timer when counter is 1
 	* TODO: Trigger alertbox when fisinsh, or triiger it when timeout
 	*/
-	$("ul").on("click", "li", function(){
+	$("ul").on("click", "li", function(event){
+		event.preventDefault();
 		var $current = ($(this));
+		if (flag){
+			countDown();
+			flag = false;
+		}
 		// if the li has not been flipped
 		if (!$current.hasClass("flip")) {
 			// creating an object that consist of the li's index and the value then add to an array
@@ -125,5 +130,4 @@ $(function() {
         else
             return n;
     };
-    countDown();
 });
