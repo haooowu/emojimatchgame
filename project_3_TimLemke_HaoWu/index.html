@@ -16,7 +16,10 @@
 				<section class="controls">
 					<div class="gameStats">
 						<div class="score">
-							<div id="scoreTotal"><p>00</p></div>
+							<div id="scoreTotal">
+								<h3>Score</h3>
+								<p>00</p>
+							</div>
 						</div>
 					</div>
 					<div class="titleAndButtons">
@@ -30,21 +33,49 @@
 						</div>
 					</div>
 					<div class="timer">
-						<div id="timerCountdown"></div>
+						<h3>Time</h3>
+						<div id="timerCountdown">3:00</div>
 					</div>
 				</section>
 				<section class="gameboard">
 					<ul id="board"></ul>
 				</section>
+				<div class="alertWin">
+					<h3>CONGRATULATIONS!</h3>
+					<h3>YOU WIN!</h3>
+					<h4>&#x1F601</h4>
+					<h3>YOUR SCORE IS:</h3>
+					<h3 id="scoreInput"></h3>
+
+				</div>
+				<div class="alertLose">
+					<h3>SO SORRY!</h3>
+					<h3>YOU LOSE!</h3>
+					<h4>&#x1F62D</h4>
+					<h3>YOUR SCORE IS:</h3>
+					<h3 id="scoreInput"></h3>
+				</div>
 			</main>
 			<footer>
 				<div class="creators">
 					<p>Created by Tim Lemke and Hao Wu</p>
 					<!--Share on Twitter-->
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-square-o fa-stack-2x"></i>
-					  <i class="fa fa-twitter fa-stack-1x"></i>
-					</span>
+					
+					
+					  <a class="twitter-share-button"
+					  	  href="https://twitter.com/share"
+					  	  data-size="large"
+					  	  data-text="custom share text"
+					  	  data-url="https://dev.twitter.com/web/tweet-button"
+					  	  data-hashtags="example,demo"
+					  	  data-via="twitterdev"
+					  	  data-related="twitterapi,twitter">
+					  	<!-- <span class="fa-stack fa-lg">
+					  	  <i class="fa fa-square-o fa-stack-2x"></i> -->
+					  	  <button><i class="fa fa-twitter" aria-hidden="true"></i></button>
+					  	<!--   <i class="fa fa-twitter fa-stack-1x"></i> -->
+						<!-- </span> -->
+					  </a>
 				</div>
 			</footer>
 		</div>

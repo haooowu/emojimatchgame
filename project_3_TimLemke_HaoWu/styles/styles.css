@@ -204,8 +204,13 @@ main {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100px; }
-  .timer p {
+  width: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .timer p, .timer div {
     font-family: 'Fredoka One', cursive;
     font-size: 28px;
     text-align: center; }
@@ -318,6 +323,64 @@ main {
     .gameboard ul .off {
       pointer-events: none; }
 
+.alertWin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 300px;
+  width: 300px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .alertWin h3 {
+    font-family: 'Fredoka One', cursive;
+    padding-bottom: 10px; }
+  .alertWin h4 {
+    display: block;
+    font-size: 80px; }
+
+.alertLose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 300px;
+  width: 300px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .alertLose h3 {
+    font-family: 'Fredoka One', cursive;
+    padding-bottom: 10px; }
+  .alertLose h4 {
+    display: block;
+    font-size: 80px; }
+
 footer {
   padding: 5px 10px; }
   footer .creators {
@@ -329,6 +392,18 @@ footer {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center; }
-    footer .creators span {
-      margin-left: auto; }
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    footer .creators button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #1a8bf0;
+      border: 0px;
+      color: white; }
+      footer .creators button i {
+        padding: 0px;
+        font-size: 20px; }
