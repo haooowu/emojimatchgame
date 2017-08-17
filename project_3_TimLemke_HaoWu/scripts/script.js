@@ -1,11 +1,12 @@
 var emojiSet = [];
 var counter = 0;
 var compare = [];
-var minutes = 2;
+var minutes = 1;
 var seconds = 60;
 var flag = true;
 var timer;
-var score;
+var score = 0;
+var size;
 
 $(function() {
 	//grab emoji from 😀 up to 🙄, total 69 emojis faces
@@ -71,6 +72,7 @@ $(function() {
 	};
 
 	function shuffleBoard(n){
+		size = n;
 		var randomSelected = randomSelect(emojiSet, n);
 		var gameSample = [];
 		for(var i = 0; i< randomSelected.length; i+=1){
@@ -111,6 +113,8 @@ $(function() {
 				// if their value are the same
 				if (compare[0].value === compare[1].value){
 					//look for the previous' index and let them stay
+					score += 10;
+					$("#socreCounter").text(score);
 					var preIndex = compare[0].index;
 					$current.addClass("correct");
 					$current.parent().children().eq(preIndex).addClass("correct");
@@ -121,7 +125,7 @@ $(function() {
 					setTimeout(function() {
 						// wait for fliping to finish
 						// console.log($("#board > li.correct").length);
-						if ($("#board > li.correct").length == n*2){
+						if ($("#board > li.correct").length == size*2){
 							alert("you win");
 							$("li").removeClass('flip');
 						}
@@ -139,18 +143,12 @@ $(function() {
 		}
 	});//end of onclick listener for emoji
 
+	//default
+	shuffleBoard(10);
+
 	/*
 	* All board filp when function triggers
 	*/
-	shuffleBoard(10);
-
- 	$("button").click(function(event){
- 		event.preventDefault();
-		$("li").addClass('flip');
-		setTimeout(function() {
-			$("li").removeClass('flip');
-		}, 500);
-	});
 
 	$("#normalMode").click(function(event){
 		$("#board").empty();
@@ -162,7 +160,8 @@ $(function() {
 		}, 500);
 	});
 
-	$("#hardMode").click(function(){
+	$("#hardMode").click(function(event){
+		event.preventDefault();
 		$("#board").empty();
 		shuffleBoard(18);
 		$('li.emojicard').css("flex", "0 0 4%");
