@@ -316,9 +316,7 @@ main {
         -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
         -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden; }
+        box-sizing: border-box; }
     .gameboard ul .flip, .gameboard ul .correct {
       -webkit-transform: rotateY(180deg);
       transform: rotateY(180deg); }
@@ -385,6 +383,9 @@ main {
     display: block;
     font-size: 80px; }
 
+span.fa-stack {
+  padding-top: 10px; }
+
 footer {
   padding: 5px 10px; }
   footer .creators {
@@ -398,4 +399,19 @@ footer {
     -ms-flex-align: center;
     align-items: center; }
     footer .creators a {
-      margin-left: auto; }
+      margin-left: auto;
+      padding-top: 0px; }
+      footer .creators a span.fa-stack {
+        padding-top: 0px; }
+
+.fa-circle, a:visited {
+  color: #1da1f3; }
+
+.creators p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.swal2-modal {
+  font-family: 'Fredoka One', cursive;
+  text-transform: uppercase; }

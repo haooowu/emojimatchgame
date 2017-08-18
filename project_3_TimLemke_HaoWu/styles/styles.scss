@@ -139,7 +139,7 @@ main {
 				display: block;
 				transform: rotateY(180deg);
 				box-sizing: border-box;
-				backface-visibility: hidden;
+				// backface-visibility: hidden;
 			}
 		}
 		// dynamic classes to control the board;
@@ -203,6 +203,10 @@ main {
 	}
 }
 
+span.fa-stack {
+	padding-top: 10px;
+}
+
 footer{
 	padding:5px 10px;
 	.creators{
@@ -211,6 +215,28 @@ footer{
 		align-items: center;
 		a{
 			margin-left: auto;
+			padding-top: 0px;
+			span.fa-stack {
+				padding-top: 0px;
+			}
 		}
 	}
+}
+
+
+.fa-circle, a:visited {
+	color: #1da1f3;
+}
+
+.creators {
+	p { 
+		font-family: 'Open Sans', sans-serif;
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+}
+
+.swal2-modal {
+	font-family: 'Fredoka One', cursive;
+	text-transform: uppercase;
 }

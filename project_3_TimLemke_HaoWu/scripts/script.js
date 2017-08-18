@@ -59,7 +59,7 @@ $(function() {
 	            let subTimer = setInterval(function(){
 	            	// alert("sorry out of time")
 	            	swal({
-	            	  title: 'Custom width, padding, background',
+	            	  title: 'So Sorry! You Lose!',
 	            	  type: 'error',
 	            	  width: 600,
 	            	  padding: 100,
@@ -67,14 +67,17 @@ $(function() {
 	            	  onClose: function() {
 	            	  	location.reload();
 	            	  },
-	            	  // background: 'url(assets/background.png)'
+	            	  background: 'url(assets/backgroundLight.png)',
 	            	  html:
+	            	 '<h3>Your final score is: ' + score + '</h3>' +
 	            	 '<a href="https://twitter.com/share">' +
 						'<span class="fa-stack fa-lg">' +
-							'<i class="fa fa-square-o fa-stack-2x"></i>' +
-							'<i class="fa fa-twitter fa-stack-1x"></i>' +
+							'<i class="fa fa-circle fa-stack-2x"></i>' +
+							'<i class="fa fa-twitter fa-inverse fa-stack-1x"></i>' +
 						'</span>' +
-					'</a>'
+					'</a>',
+					// html:
+	    //         	 '<h3>Your final score is: ' + score + '</h3>'
 	            	})
 	            	clearInterval(subTimer);
 	            }, 0)
@@ -144,7 +147,29 @@ $(function() {
 						// wait for fliping to finish
 						// console.log($("#board > li.correct").length);
 						if ($("#board > li.correct").length == size*2){
-							alert("you win");
+			            	swal({
+			            	  title: 'GREAT JOB! YOU WIN!',
+			            	  type: 'success',
+			            	  text: '&#x1F601',
+			            	  width: 600,
+			            	  padding: 100,
+			            	  allowOutsideClick: false,
+			            	  onClose: function() {
+			            	  	location.reload();
+			            	  },
+			            	  // background: 'url(assets/backgroundLight.png)',
+			            	  html:
+			            	 '<h3>Your final score is: ' + score + '</h3>' +
+			            	 '<h3>Your time left is: ' + minutes + ':' + leadingZero(seconds) + '</h3>' +
+			            	 '<a href="https://twitter.com/share">' +
+								'<span class="fa-stack fa-lg">' +
+									'<i class="fa fa-circle fa-stack-2x"></i>' +
+									'<i class="fa fa-twitter fa-inverse fa-stack-1x"></i>' +
+								'</span>' +
+							'</a>',
+							// html:
+			    //         	 '<h3>Your final score is: ' + score + '</h3>'
+			            	});
 							$("li").removeClass('flip');
 						}
 					}, 350);
