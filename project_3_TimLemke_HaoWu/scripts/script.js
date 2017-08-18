@@ -115,7 +115,8 @@ $(function() {
 			flag = false;
 		}
 		var $current = ($(this));
-		$('Button').prop('disabled', true);
+		$("#hardMode").prop('disabled', true);
+		$("#normalMode").prop('disabled', true);
 		// if the li has not been flipped
 		if (!$current.hasClass("flip")) {
 			// creating an object that consist of the li's index and the value then add to an array
@@ -213,6 +214,12 @@ $(function() {
 		setTimeout(function() {
 			$("li").removeClass('flip');
 		}, 500);
+	});
+
+
+	$("#reset").click(function(event){
+		event.preventDefault();
+		location.reload();
 	});
 	//default
 	shuffleBoard(10);

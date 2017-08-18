@@ -32,7 +32,7 @@ section.controls {
 	display: flex;
 	justify-content: space-around;
 	position: relative;
-	border: 4px outset black;
+	border: 4px solid #212121;
 	border-radius: 15px;
 	background-color: white;
 	@include respond_to("medium"){
@@ -41,6 +41,9 @@ section.controls {
 	div.titleAndButtons {
 		padding-bottom: 14px;
 		padding-right: -14px;
+		@include respond_to("small"){
+			transform: scale(0.9);
+		}
 		h1 {
 			font-size: 50px;
 			padding-top: 7px;
@@ -53,7 +56,7 @@ section.controls {
 				font-size: 33px;
 			}
 			@include respond_to("small"){
-				font-size: 25px;
+				font-size: 24px;
 			}
 		}
 		div.buttonContainer {
@@ -67,10 +70,18 @@ section.controls {
 			button {
 				background-color: #ffcc33;
 				font-family: 'Fredoka One', cursive;
-				width: 100px;
+				max-width: auto;
+				min-width:90px;
+				padding: 5px;
 				height: 40px;
 				border: 2px solid transparent;
 				border-radius: 25px;
+				@include respond_to("small"){
+					font-size: 14px;
+				}
+			}
+			#reset{
+				min-width: 40px;
 			}
 		}
 	}
@@ -78,36 +89,59 @@ section.controls {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 100px;
+		width: 60px;
 		flex-direction: column;
+		@include respond_to("small"){
+			transform: scale(0.8);
+		}
 		p, div {
 			font-family: 'Fredoka One', cursive;
 			font-size: 28px;
+			color:#ffcc00;
+			text-shadow: 3px 3px 3px black;
 			text-align: center;
+			@include respond_to("small"){
+				font-size: 20px;
+			}
+		}
+		.scoreCounter{
+			font-color:#ffcc33;
 		}
 	}
 	div.gameStats {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 100px;
+		width: 60px;
+		@include respond_to("small"){
+			transform: scale(0.8);
+		}
 		p {
 			font-family: 'Fredoka One', cursive;
 			font-size: 28px;
+			color:#ffcc00;
+			text-shadow: 3px 3px 3px black;
+			@include respond_to("small"){
+				font-size: 20px;
+			}
 		}
 	}
 }
 
 section.gameboard {
+	user-select: none;
 	margin-top: 10px;
 	padding-bottom: 20px;
-	border: 4px outset black;
+	border: 4px solid #212121;
 	border-radius: 15px;
 	background-color: white;
 	@include respond_to("medium"){
 		transform: scale(0.99);
 	}
 	ul {
+		//THIS CHANGES THE IOS HOVER TRANSPARENT
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		//https://stackoverflow.com/questions/11885161/remove-grey-background-on-link-clicked-in-ios-safari
 		margin: 0 auto;
 		padding: 0;
 		margin-top: 20px;
@@ -124,12 +158,14 @@ section.gameboard {
 			transition: all 0.3s linear;
 			//fliping transformation inspired by: http://css3.bradshawenterprises.com/flip/
 			.front{
-				border: 2px solid black;
+				border: 2px solid transparent;
 				border-radius: 8px;
 				position: absolute;
-				background-color: transparent;
+				background-color: #ffcc33;
 				width: 100%;
 				height: 100%;
+				font-family: 'Fredoka One', cursive;
+				font-weight: 300;
 				backface-visibility: hidden;
 			}
 			.back{
@@ -137,6 +173,7 @@ section.gameboard {
 				background-color: #ffcc33;
 				border-radius: 8px;
 				display: block;
+				height: 100%;
 				transform: rotateY(180deg);
 				box-sizing: border-box;
 				backface-visibility: hidden;
@@ -167,7 +204,7 @@ span.fa-stack {
 footer{
 	padding:5px 10px;
 	.creators{
-		color: black;
+		color: #ffffff;
 		display: flex;
 		align-items: center;
 		a{
