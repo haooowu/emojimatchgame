@@ -1,8 +1,8 @@
 var emojiSet = [];
 var counter = 0;
 var compare = [];
-var minutes = 1;
-var seconds = 60;
+var minutes = 0;
+var seconds = 2;
 var flag = true;
 var timer;
 var score = 0;
@@ -57,7 +57,25 @@ $(function() {
 	        	// need another sub interval, or else alerts at 0:01 instead of 0:00
 	           	clearInterval(timer);
 	            let subTimer = setInterval(function(){
-	            	alert("sorry out of time")
+	            	// alert("sorry out of time")
+	            	swal({
+	            	  title: 'Custom width, padding, background',
+	            	  type: 'error',
+	            	  width: 600,
+	            	  padding: 100,
+	            	  allowOutsideClick: false,
+	            	  onClose: function() {
+	            	  	location.reload();
+	            	  },
+	            	  // background: 'url(assets/background.png)'
+	            	  html:
+	            	 '<a href="https://twitter.com/share">' +
+						'<span class="fa-stack fa-lg">' +
+							'<i class="fa fa-square-o fa-stack-2x"></i>' +
+							'<i class="fa fa-twitter fa-stack-1x"></i>' +
+						'</span>' +
+					'</a>'
+	            	})
 	            	clearInterval(subTimer);
 	            }, 0)
 	        }
@@ -114,7 +132,7 @@ $(function() {
 				if (compare[0].value === compare[1].value){
 					//look for the previous' index and let them stay
 					score += 10;
-					$("#socreCounter").text(score);
+					$("#scoreCounter").text(score);
 					var preIndex = compare[0].index;
 					$current.addClass("correct");
 					$current.parent().children().eq(preIndex).addClass("correct");
