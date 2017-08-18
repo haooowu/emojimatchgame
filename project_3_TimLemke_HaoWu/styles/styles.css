@@ -139,10 +139,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 button:focus {
   outline: 0; }
 
-/**
-* todo: mixin to control responsive font size
-* color-set: https://color.adobe.com/explore/?filter=newest
-*/
 body {
   background-image: url("../assets/background.png");
   background-size: cover;
@@ -179,7 +175,7 @@ section.controls {
   -ms-flex-pack: distribute;
   justify-content: space-around;
   position: relative;
-  border: 5px outset black;
+  border: 4px outset black;
   border-radius: 15px;
   background-color: white; }
   @media only screen and (max-width: 768px) {
@@ -188,8 +184,8 @@ section.controls {
       -ms-transform: scale(0.99);
       transform: scale(0.99); } }
   section.controls div.titleAndButtons {
-    padding-bottom: 20px;
-    padding-right: -20px; }
+    padding-bottom: 14px;
+    padding-right: -14px; }
     section.controls div.titleAndButtons h1 {
       font-size: 50px;
       padding-top: 7px;
@@ -270,7 +266,7 @@ section.controls {
 section.gameboard {
   margin-top: 10px;
   padding-bottom: 20px;
-  border: 5px outset black;
+  border: 4px outset black;
   border-radius: 15px;
   background-color: white; }
   @media only screen and (max-width: 768px) {

@@ -6,10 +6,7 @@
 	margin: 0px;}
 
 button:focus {outline:0;}
-/**
-* todo: mixin to control responsive font size
-* color-set: https://color.adobe.com/explore/?filter=newest
-*/
+
 body {
 	background-image: url('../assets/background.png');
 	background-size: cover;
@@ -26,10 +23,6 @@ body {
 	min-height: 100vh;
 }
 
-.holder{
-	// margin-top: 20px;
-}
-
 main {
 	border-radius: 15px;
 	text-align: center;
@@ -39,15 +32,15 @@ section.controls {
 	display: flex;
 	justify-content: space-around;
 	position: relative;
-	border: 5px outset black;
+	border: 4px outset black;
 	border-radius: 15px;
 	background-color: white;
 	@include respond_to("medium"){
 		transform: scale(0.99);
 	}
 	div.titleAndButtons {
-		padding-bottom: 20px;
-		padding-right: -20px;
+		padding-bottom: 14px;
+		padding-right: -14px;
 		h1 {
 			font-size: 50px;
 			padding-top: 7px;
@@ -108,7 +101,7 @@ section.controls {
 section.gameboard {
 	margin-top: 10px;
 	padding-bottom: 20px;
-	border: 5px outset black;
+	border: 4px outset black;
 	border-radius: 15px;
 	background-color: white;
 	@include respond_to("medium"){
