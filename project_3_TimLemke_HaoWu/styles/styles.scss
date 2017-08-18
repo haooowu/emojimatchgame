@@ -2,10 +2,10 @@
 @import "partials/setup";
 
 * {
-	transition: 0.3s;
 	padding: 0px; 
 	margin: 0px;}
 
+button:focus {outline:0;}
 /**
 * todo: mixin to control responsive font size
 * color-set: https://color.adobe.com/explore/?filter=newest
@@ -30,21 +30,23 @@ body {
 }
 
 main {
-	// background-color: #ffffff;
-	// border: 5px outset black;
 	border-radius: 15px;
 	text-align: center;
 }
 
-.controls {
+section.controls {
 	display: flex;
 	justify-content: space-around;
 	position: relative;
 	border: 5px outset black;
 	border-radius: 15px;
 	background-color: white;
+	.titleAndButtons {
+		padding-bottom: 20px;
+		padding-right: -20px;
+	}
 	h1 {
-		font-size: 53px;
+		font-size: 50px;
 		padding-top: 7px;
 		padding-bottom: 10px;
 		font-family: 'Fredoka One', cursive;
@@ -52,56 +54,48 @@ main {
 		text-shadow: 3px 3px 3px black;
 		z-index: 1;
 	}
-}
-
-.timer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100px;
-	flex-direction: column;
-	p, div {
-		font-family: 'Fredoka One', cursive;
-		font-size: 28px;
-		text-align: center;
+	div.buttonContainer {
+		max-width: 500px;
+		margin: 0 auto;
+		.difficulity{
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		button {
+			background-color: #ffcc33;
+			font-family: 'Fredoka One', cursive;
+			width: 100px;
+			height: 40px;
+			border: 2px solid transparent;
+			border-radius: 25px;
+		}
 	}
-}
-
-.titleAndButtons {
-	padding-bottom: 20px;
-	padding-right: -20px;
-}
-
-.gameStats {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100px;
-	p {
-		font-family: 'Fredoka One', cursive;
-		font-size: 28px;
-	}
-}
-
-.buttonContainer {
-	max-width: 500px;
-	margin: 0 auto;
-	.difficulity{
+	div.timer {
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 		align-items: center;
-	}
-	button {
-		background-color: #ffcc33;
-		font-family: 'Fredoka One', cursive;
 		width: 100px;
-		height: 40px;
-		border: 2px solid transparent;
-		border-radius: 25px;
+		flex-direction: column;
+		p, div {
+			font-family: 'Fredoka One', cursive;
+			font-size: 28px;
+			text-align: center;
+		}
+	}
+	div.gameStats {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100px;
+		p {
+			font-family: 'Fredoka One', cursive;
+			font-size: 28px;
+		}
 	}
 }
 
-.gameboard {
+section.gameboard {
 	margin-top: 10px;
 	padding-bottom: 20px;
 	border: 5px outset black;
@@ -118,13 +112,13 @@ main {
 		flex-wrap: wrap;
 		li.emojicard{
 			font-size: 50px;
-			flex: 0 0 15%;
+			flex-basis: 15%;
 			margin: 2% 2%;
 			transform-style: preserve-3d;
 			transition: all 0.3s linear;
 			//fliping transformation inspired by: http://css3.bradshawenterprises.com/flip/
 			.front{
-				border: 3px solid black;
+				border: 2px solid black;
 				border-radius: 8px;
 				position: absolute;
 				background-color: transparent;
@@ -132,14 +126,14 @@ main {
 				height: 100%;
 				backface-visibility: hidden;
 			}
-			.back{	
-				border: 3px solid #ffcc33;
+			.back{
+				border: 2px solid #ffcc33;
 				background-color: #ffcc33;
 				border-radius: 8px;
 				display: block;
 				transform: rotateY(180deg);
 				box-sizing: border-box;
-				// backface-visibility: hidden;
+				backface-visibility: hidden;
 			}
 		}
 		// dynamic classes to control the board;
@@ -152,59 +146,13 @@ main {
 		//
 	}
 }
-// combine to one class
-.alertWin {
-	visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 300px;
-	width: 300px;
-	background-color: white;
-	border: 3px solid black;
-	border-radius: 8px;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-
-	h3 {
-		font-family: 'Fredoka One', cursive;
-		padding-bottom: 10px;
-
-	}
-	h4 {
-		display: block;
-		font-size: 80px;
-	}
-}
-
-.alertLose {
-	visibility: hidden;
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 300px;
-	width: 300px;
-	background-color: white;
-	border: 3px solid black;
-	border-radius: 8px;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-
-	h3 {
-		font-family: 'Fredoka One', cursive;
-		padding-bottom: 10px;
-
-	}
-	h4 {
-		display: block;
-		font-size: 80px;
-	}
-}
 
 span.fa-stack {
 	padding-top: 10px;
+}
+
+.fa-circle, a:visited {
+	color: #1da1f3;
 }
 
 footer{
@@ -220,19 +168,10 @@ footer{
 				padding-top: 0px;
 			}
 		}
-	}
-}
-
-
-.fa-circle, a:visited {
-	color: #1da1f3;
-}
-
-.creators {
-	p { 
-		font-family: 'Open Sans', sans-serif;
-		font-size: 18px;
-		text-transform: uppercase;
+		p { 
+			font-family: 'Open Sans', sans-serif;
+			font-size: 16px;
+		}
 	}
 }
 

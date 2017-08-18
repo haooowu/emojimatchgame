@@ -133,11 +133,11 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 * {
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
   padding: 0px;
   margin: 0px; }
+
+button:focus {
+  outline: 0; }
 
 /**
 * todo: mixin to control responsive font size
@@ -172,7 +172,7 @@ main {
   border-radius: 15px;
   text-align: center; }
 
-.controls {
+section.controls {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -184,91 +184,87 @@ main {
   border: 5px outset black;
   border-radius: 15px;
   background-color: white; }
-  .controls h1 {
-    font-size: 53px;
+  section.controls .titleAndButtons {
+    padding-bottom: 20px;
+    padding-right: -20px; }
+  section.controls h1 {
+    font-size: 50px;
     padding-top: 7px;
     padding-bottom: 10px;
     font-family: 'Fredoka One', cursive;
     color: #ffcc33;
     text-shadow: 3px 3px 3px black;
     z-index: 1; }
-
-.timer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-  .timer p, .timer div {
-    font-family: 'Fredoka One', cursive;
-    font-size: 28px;
-    text-align: center; }
-
-.titleAndButtons {
-  padding-bottom: 20px;
-  padding-right: -20px; }
-
-.gameStats {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100px; }
-  .gameStats p {
-    font-family: 'Fredoka One', cursive;
-    font-size: 28px; }
-
-.buttonContainer {
-  max-width: 500px;
-  margin: 0 auto; }
-  .buttonContainer .difficulity {
+  section.controls div.buttonContainer {
+    max-width: 500px;
+    margin: 0 auto; }
+    section.controls div.buttonContainer .difficulity {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center; }
+    section.controls div.buttonContainer button {
+      background-color: #ffcc33;
+      font-family: 'Fredoka One', cursive;
+      width: 100px;
+      height: 40px;
+      border: 2px solid transparent;
+      border-radius: 25px; }
+  section.controls div.timer {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center; }
-  .buttonContainer button {
-    background-color: #ffcc33;
-    font-family: 'Fredoka One', cursive;
+    align-items: center;
     width: 100px;
-    height: 40px;
-    border: 2px solid transparent;
-    border-radius: 25px; }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    section.controls div.timer p, section.controls div.timer div {
+      font-family: 'Fredoka One', cursive;
+      font-size: 28px;
+      text-align: center; }
+  section.controls div.gameStats {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100px; }
+    section.controls div.gameStats p {
+      font-family: 'Fredoka One', cursive;
+      font-size: 28px; }
 
-.gameboard {
+section.gameboard {
   margin-top: 10px;
   padding-bottom: 20px;
   border: 5px outset black;
   border-radius: 15px;
   background-color: white; }
-  .gameboard ul {
+  section.gameboard ul {
     margin: 0 auto;
     padding: 0;
     margin-top: 20px;
@@ -287,20 +283,19 @@ main {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .gameboard ul li.emojicard {
+    section.gameboard ul li.emojicard {
       font-size: 50px;
-      -webkit-box-flex: 0;
-      -webkit-flex: 0 0 15%;
-      -ms-flex: 0 0 15%;
-      flex: 0 0 15%;
+      -webkit-flex-basis: 15%;
+      -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
       margin: 2% 2%;
       -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
       -webkit-transition: all 0.3s linear;
       -o-transition: all 0.3s linear;
       transition: all 0.3s linear; }
-      .gameboard ul li.emojicard .front {
-        border: 3px solid black;
+      section.gameboard ul li.emojicard .front {
+        border: 2px solid black;
         border-radius: 8px;
         position: absolute;
         background-color: transparent;
@@ -308,83 +303,28 @@ main {
         height: 100%;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden; }
-      .gameboard ul li.emojicard .back {
-        border: 3px solid #ffcc33;
+      section.gameboard ul li.emojicard .back {
+        border: 2px solid #ffcc33;
         background-color: #ffcc33;
         border-radius: 8px;
         display: block;
         -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
         -webkit-box-sizing: border-box;
-        box-sizing: border-box; }
-    .gameboard ul .flip, .gameboard ul .correct {
+        box-sizing: border-box;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden; }
+    section.gameboard ul .flip, section.gameboard ul .correct {
       -webkit-transform: rotateY(180deg);
       transform: rotateY(180deg); }
-    .gameboard ul .off {
+    section.gameboard ul .off {
       pointer-events: none; }
-
-.alertWin {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 300px;
-  width: 300px;
-  background-color: white;
-  border: 3px solid black;
-  border-radius: 8px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-  .alertWin h3 {
-    font-family: 'Fredoka One', cursive;
-    padding-bottom: 10px; }
-  .alertWin h4 {
-    display: block;
-    font-size: 80px; }
-
-.alertLose {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 300px;
-  width: 300px;
-  background-color: white;
-  border: 3px solid black;
-  border-radius: 8px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-  .alertLose h3 {
-    font-family: 'Fredoka One', cursive;
-    padding-bottom: 10px; }
-  .alertLose h4 {
-    display: block;
-    font-size: 80px; }
 
 span.fa-stack {
   padding-top: 10px; }
+
+.fa-circle, a:visited {
+  color: #1da1f3; }
 
 footer {
   padding: 5px 10px; }
@@ -403,14 +343,9 @@ footer {
       padding-top: 0px; }
       footer .creators a span.fa-stack {
         padding-top: 0px; }
-
-.fa-circle, a:visited {
-  color: #1da1f3; }
-
-.creators p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  text-transform: uppercase; }
+    footer .creators p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px; }
 
 .swal2-modal {
   font-family: 'Fredoka One', cursive;

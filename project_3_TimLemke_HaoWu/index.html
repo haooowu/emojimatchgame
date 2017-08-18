@@ -4,8 +4,6 @@
 	<meta charset="UTF-8">
 	<title>EMOJI MATCH!</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!--TODO: FONTS, RWD, COLOR THEME-->
-	<!--TODO: JS prevent refresh-->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:300,400" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.css">
@@ -41,21 +39,6 @@
 				<section class="gameboard">
 					<ul id="board"></ul>
 				</section>
-				<div class="alertWin">
-					<h3>CONGRATULATIONS!</h3>
-					<h3>YOU WIN!</h3>
-					<h4>&#x1F601</h4>
-					<h3>YOUR SCORE IS:</h3>
-					<h3 id="scoreInput"></h3>
-
-				</div>
-				<div class="alertLose">
-					<h3>SO SORRY!</h3>
-					<h3>YOU LOSE!</h3>
-					<h4>&#x1F62D</h4>
-					<h3>YOUR SCORE IS:</h3>
-					<h3 id="scoreInput"></h3>
-				</div>
 			</main>
 			<footer>
 				<div class="creators">
@@ -69,7 +52,7 @@
 						data-hashtags="example,demo"
 						data-via="twitterdev"
 						data-related="twitterapi,twitter">
-						<span class="fa-stack fa-lg">
+						<span class="fa-stack fa">
 							<i class="fa fa-circle fa-stack-2x"></i>
 							<i class="fa fa-twitter fa-inverse fa-stack-1x"></i>
 						</span>
@@ -78,9 +61,11 @@
 			</footer>
 		</div>
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-	<script src ="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.js"></script>
-	<script src="scripts/script.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.js"></script>
+	<script src = "scripts/script.js"></script>
+
+	<!-- https://stackoverflow.com/questions/14360581/force-landscape-orientation-mode -->
 </body>
 </html>
 
