@@ -23,10 +23,11 @@ body {
 	flex-direction: column;
 	max-width: 800px;
 	margin: 0 auto;
+	min-height: 100vh;
 }
 
 .holder{
-	margin-top: 20px;
+	// margin-top: 20px;
 }
 
 main {
@@ -41,34 +42,43 @@ section.controls {
 	border: 5px outset black;
 	border-radius: 15px;
 	background-color: white;
-	.titleAndButtons {
+	@include respond_to("medium"){
+		transform: scale(0.99);
+	}
+	div.titleAndButtons {
 		padding-bottom: 20px;
 		padding-right: -20px;
-	}
-	h1 {
-		font-size: 50px;
-		padding-top: 7px;
-		padding-bottom: 10px;
-		font-family: 'Fredoka One', cursive;
-		color: #ffcc33;
-		text-shadow: 3px 3px 3px black;
-		z-index: 1;
-	}
-	div.buttonContainer {
-		max-width: 500px;
-		margin: 0 auto;
-		.difficulity{
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-		}
-		button {
-			background-color: #ffcc33;
+		h1 {
+			font-size: 50px;
+			padding-top: 7px;
+			padding-bottom: 10px;
 			font-family: 'Fredoka One', cursive;
-			width: 100px;
-			height: 40px;
-			border: 2px solid transparent;
-			border-radius: 25px;
+			color: #ffcc33;
+			text-shadow: 3px 3px 3px black;
+			z-index: 1;
+			@include respond_to("medium"){
+				font-size: 33px;
+			}
+			@include respond_to("small"){
+				font-size: 25px;
+			}
+		}
+		div.buttonContainer {
+			max-width: 500px;
+			margin: 0 auto;
+			.difficulity{
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+			}
+			button {
+				background-color: #ffcc33;
+				font-family: 'Fredoka One', cursive;
+				width: 100px;
+				height: 40px;
+				border: 2px solid transparent;
+				border-radius: 25px;
+			}
 		}
 	}
 	div.timer {
@@ -101,6 +111,9 @@ section.gameboard {
 	border: 5px outset black;
 	border-radius: 15px;
 	background-color: white;
+	@include respond_to("medium"){
+		transform: scale(0.99);
+	}
 	ul {
 		margin: 0 auto;
 		padding: 0;
@@ -134,6 +147,9 @@ section.gameboard {
 				transform: rotateY(180deg);
 				box-sizing: border-box;
 				backface-visibility: hidden;
+			}
+			@include respond_to("xsmall"){
+				font-size: 30px;
 			}
 		}
 		// dynamic classes to control the board;

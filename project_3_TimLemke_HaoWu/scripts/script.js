@@ -108,7 +108,7 @@ $(function() {
 	}//end of shuffle board
 
 	//onClick listener
-	$("ul").on("click", "li", function(event){
+	$("ul").on("click touchstart", "li", function(event){
 		event.preventDefault();
 		if (flag){
 			countDown();
@@ -207,7 +207,8 @@ $(function() {
 		event.preventDefault();
 		$("#board").empty();
 		shuffleBoard(18);
-		$('li.emojicard').css("flex-basis", "7%");
+		$('li.emojicard').css("flex-basis", "13%");
+		$('li.emojicard').css("margin", "1% 1%");
 		$("li").addClass('flip');
 		setTimeout(function() {
 			$("li").removeClass('flip');

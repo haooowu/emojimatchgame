@@ -163,10 +163,8 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 800px;
-  margin: 0 auto; }
-
-.holder {
-  margin-top: 20px; }
+  margin: 0 auto;
+  min-height: 100vh; }
 
 main {
   border-radius: 15px;
@@ -184,39 +182,50 @@ section.controls {
   border: 5px outset black;
   border-radius: 15px;
   background-color: white; }
-  section.controls .titleAndButtons {
+  @media only screen and (max-width: 768px) {
+    section.controls {
+      -webkit-transform: scale(0.99);
+      -ms-transform: scale(0.99);
+      transform: scale(0.99); } }
+  section.controls div.titleAndButtons {
     padding-bottom: 20px;
     padding-right: -20px; }
-  section.controls h1 {
-    font-size: 50px;
-    padding-top: 7px;
-    padding-bottom: 10px;
-    font-family: 'Fredoka One', cursive;
-    color: #ffcc33;
-    text-shadow: 3px 3px 3px black;
-    z-index: 1; }
-  section.controls div.buttonContainer {
-    max-width: 500px;
-    margin: 0 auto; }
-    section.controls div.buttonContainer .difficulity {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-      justify-content: space-around;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center; }
-    section.controls div.buttonContainer button {
-      background-color: #ffcc33;
+    section.controls div.titleAndButtons h1 {
+      font-size: 50px;
+      padding-top: 7px;
+      padding-bottom: 10px;
       font-family: 'Fredoka One', cursive;
-      width: 100px;
-      height: 40px;
-      border: 2px solid transparent;
-      border-radius: 25px; }
+      color: #ffcc33;
+      text-shadow: 3px 3px 3px black;
+      z-index: 1; }
+      @media only screen and (max-width: 768px) {
+        section.controls div.titleAndButtons h1 {
+          font-size: 33px; } }
+      @media only screen and (max-width: 480px) {
+        section.controls div.titleAndButtons h1 {
+          font-size: 25px; } }
+    section.controls div.titleAndButtons div.buttonContainer {
+      max-width: 500px;
+      margin: 0 auto; }
+      section.controls div.titleAndButtons div.buttonContainer .difficulity {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
+      section.controls div.titleAndButtons div.buttonContainer button {
+        background-color: #ffcc33;
+        font-family: 'Fredoka One', cursive;
+        width: 100px;
+        height: 40px;
+        border: 2px solid transparent;
+        border-radius: 25px; }
   section.controls div.timer {
     display: -webkit-box;
     display: -webkit-flex;
@@ -264,6 +273,11 @@ section.gameboard {
   border: 5px outset black;
   border-radius: 15px;
   background-color: white; }
+  @media only screen and (max-width: 768px) {
+    section.gameboard {
+      -webkit-transform: scale(0.99);
+      -ms-transform: scale(0.99);
+      transform: scale(0.99); } }
   section.gameboard ul {
     margin: 0 auto;
     padding: 0;
@@ -314,6 +328,9 @@ section.gameboard {
         box-sizing: border-box;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden; }
+      @media only screen and (max-width: 378px) {
+        section.gameboard ul li.emojicard {
+          font-size: 30px; } }
     section.gameboard ul .flip, section.gameboard ul .correct {
       -webkit-transform: rotateY(180deg);
       transform: rotateY(180deg); }
