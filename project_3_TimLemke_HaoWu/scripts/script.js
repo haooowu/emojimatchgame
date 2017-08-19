@@ -77,7 +77,7 @@ $(function() {
 						},
 						background: 'url(assets/backgroundLight.png)',
 						html:
-						'<h3>Your final score is: <span class="result_score">' + score + '</span></h3>'  +
+						'<h3>Your Final Score is: <span class="result_score">' + score + '</span></h3>'  +
 						'<a href="https://twitter.com/share">' +
 						'<span class="fa-stack fa-lg">' +
 							'<i class="fa fa-circle fa-stack-2x"></i>' +
@@ -143,8 +143,11 @@ $(function() {
 				$("li").addClass("off");
 				// if their value are the same
 				if (compare[0].value === compare[1].value){
-					//the poooop!
-					if (compare[0].value === String.fromCodePoint(0x1F4A9)){
+					//😈 Devil minus your score, heh
+					if (compare[0].value === String.fromCodePoint(0x1F608)){
+						score -= 5;
+					}//the poooop bonus
+					else if (compare[0].value === String.fromCodePoint(0x1F4A9)){
 						score += 100;
 					} else if (mode === "hard"){
 						score += 20;
@@ -181,7 +184,7 @@ $(function() {
 									location.reload();
 								},
 								html:
-								'<h3>Your final score is: <span class="result_score">' + score + '</span></h3>' +
+								'<h3>Your Final Score is: <span class="result_score">' + score + '</span></h3>' +
 								'<h3>Remaining Time: <span class="result_score">' + minutes + ':' + leadingZero(seconds) + '</span></h3>' +
 								'<a href="https://twitter.com/share">' +
 								'<span class="fa-stack fa-lg">' +
@@ -251,11 +254,11 @@ $(function() {
 		'<p>&#x1F3AE Normal: One Correct match = <span class="result_score">10 points</span> </p>' +
 		'<p>&#x1F525 Hardcore: One Correct match = <span class="result_score">20 points</span> </p>' +
 		'<p>Matching &#x1F4A9 = <span class="result_score">100 points!</span></p>' +
+		'<p>Matching &#x1F608 deducts <span class="result_score"> 5 points!</span></p>' +
 		'<p>&#x1F4AF Final Score = total points + remainting time</p>' +
 		'<br>' + '<p>Thank you for playing!</p>'
 		})
 	});
-
 	//default
 	shuffleBoard(10);
 
