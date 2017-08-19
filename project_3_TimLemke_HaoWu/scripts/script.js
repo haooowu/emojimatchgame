@@ -255,7 +255,7 @@ $(function() {
 		'<p>&#x1F525 Hardcore: One Correct match = <span class="result_score">20 points</span> </p>' +
 		'<p>Matching &#x1F4A9 = <span class="result_score">100 points!</span></p>' +
 		'<p>Matching &#x1F608 deducts <span class="result_score"> 5 points!</span></p>' +
-		'<p>&#x1F4AF Final Score = total points + remainting time</p>' +
+		'<p>&#x1F4AF Final Score = total points + remaining time</p>' +
 		'<br>' + '<p>Thank you for playing!</p>'
 		})
 	});
