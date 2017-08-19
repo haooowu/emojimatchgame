@@ -344,7 +344,6 @@ section.gameboard {
       -o-transition: all 0.3s linear;
       transition: all 0.3s linear; }
       section.gameboard ul li.emojicard .front {
-        border: 2px solid transparent;
         border-radius: 8px;
         position: absolute;
         background-color: #ffcc33;
@@ -355,7 +354,6 @@ section.gameboard {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden; }
       section.gameboard ul li.emojicard .back {
-        border: 2px solid #ffcc33;
         background-color: #ffcc33;
         border-radius: 8px;
         display: block;
@@ -400,8 +398,20 @@ footer {
         padding-top: 0px; }
     footer .creators p {
       font-family: 'Open Sans', sans-serif;
-      font-size: 16px; }
+      font-size: 15px; }
+    @media only screen and (max-width: 378px) {
+      footer .creators {
+        -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+        font-size: 12px; } }
 
 .swal2-modal {
   font-family: 'Fredoka One', cursive;
   text-transform: uppercase; }
+
+span.result_score {
+  color: #1da1f3; }
+
+.fa-question-circle {
+  color: #534211; }

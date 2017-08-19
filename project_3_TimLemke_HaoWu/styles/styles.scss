@@ -139,9 +139,8 @@ section.gameboard {
 		transform: scale(0.99);
 	}
 	ul {
-		//THIS CHANGES THE IOS HOVER TRANSPARENT
+		// !!! CHANGES THE IOS HOVER TRANSPARENT !!!
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		//https://stackoverflow.com/questions/11885161/remove-grey-background-on-link-clicked-in-ios-safari
 		margin: 0 auto;
 		padding: 0;
 		margin-top: 20px;
@@ -158,7 +157,6 @@ section.gameboard {
 			transition: all 0.3s linear;
 			//fliping transformation inspired by: http://css3.bradshawenterprises.com/flip/
 			.front{
-				border: 2px solid transparent;
 				border-radius: 8px;
 				position: absolute;
 				background-color: #ffcc33;
@@ -169,7 +167,6 @@ section.gameboard {
 				backface-visibility: hidden;
 			}
 			.back{
-				border: 2px solid #ffcc33;
 				background-color: #ffcc33;
 				border-radius: 8px;
 				display: block;
@@ -216,7 +213,11 @@ footer{
 		}
 		p { 
 			font-family: 'Open Sans', sans-serif;
-			font-size: 16px;
+			font-size: 15px;
+		}
+		@include respond_to("xsmall"){
+			transform: scale(0.95);
+			font-size: 12px;
 		}
 	}
 }
@@ -224,4 +225,12 @@ footer{
 .swal2-modal {
 	font-family: 'Fredoka One', cursive;
 	text-transform: uppercase;
+}
+
+span.result_score{
+	color: #1da1f3;
+}
+
+.fa-question-circle{
+	color: #534211;
 }

@@ -10,7 +10,7 @@ var size;
 var mode;
 
 $(function() {
-	//grab emoji from 😀 up to 🙄, total 69 emojis faces + 💩 for bonus 100 points
+	//grab emoji from 😀 up to 🙄, + 💩 for bonus 100 points = total 70 emojis faces
 	for (var i = 0x1F600; i <= 0x1F644; i += 1){
 		emojiSet.push(String.fromCodePoint(i));
 	}
@@ -36,62 +36,71 @@ $(function() {
 		return array.slice(0, num);
 	}
 	/** Docstring **
-	* countDown for three minuites 
+	* countDown for two minuites 
 	*/
 	function countDown() {
 		//setinterval for 1 second 
-	    timer = setInterval(function() {
-	    	//when 60 sec passed, minute - 1, second resets to 59
-	    	if (seconds === 0) {
-	    		minutes -= 1;
-	    		seconds = 59;
-	    	} else {
-	    		seconds -= 1;
-	    	}
-	    	// if mintes is greater than 0, OR, seconds is greater than 0
-	        if (minutes > 0 || seconds > 0) {
-	        	$('#timerCountdown').html(`<p>${minutes}:${leadingZero(seconds)}</p>`);
-	        }
-	        //else times up
-	        else if (minutes === 0 && seconds === 0) {
-	        	//add the 0
-	        	$('#timerCountdown').html(`<p>${minutes}:${leadingZero(seconds)}</p>`);
-	        	// need another sub-interval, or else alerts at 0:01 instead of 0:00
-	           	clearInterval(timer);
-	            let subTimer = setInterval(function(){
-	            	// sweet alert plugin
-	            	swal({
-	            	  title: 'So Sorry! You Lose!',
-	            	  type: 'error',
-	            	  width: 600,
-	            	  padding: 100,
-	            	  allowOutsideClick: false,
-	            	  onClose: function() {
-	            	  	location.reload();
-	            	  },
-	            	  background: 'url(assets/backgroundLight.png)',
-	            	  html:
-	            	 '<h3>Your final score is: ' + score + '</h3>' +
-	            	 '<a href="https://twitter.com/share">' +
+		timer = setInterval(function() {
+			//when 60 sec passed, minute - 1, second resets to 59
+			if (seconds === 0) {
+				minutes -= 1;
+				seconds = 59;
+			} else {
+				seconds -= 1;
+			}
+			// when only 30sec left, warn with red text
+			if (minutes === 0 && seconds < 30) {
+				$('#timerCountdown').css("color","red");
+			}
+			
+			// if mintes is greater than 0, OR seconds is greater than 0
+			if (minutes > 0 || seconds > 0) {
+			$('#timerCountdown').html(`${minutes}:${leadingZero(seconds)}`);
+			}
+			//else times up
+			else if (minutes === 0 && seconds === 0) {
+				//add the 0
+				$('#timerCountdown').html(`${minutes}:${leadingZero(seconds)}`);
+
+				//!! need another sub-interval, or else alerts at 0:01 instead of 0:00 !!
+				clearInterval(timer);
+				let subTimer = setInterval(function(){
+					// sweet alert plugin
+					swal({
+						title: 'So Sorry, You Lose!',
+						type: 'error',
+						width: 500,
+						padding: 50,
+						allowOutsideClick: false,
+						onClose: function() {
+							location.reload();
+						},
+						background: 'url(assets/backgroundLight.png)',
+						html:
+						'<h3>Your final score is: <span class="result_score">' + score + '</span></h3>'  +
+						'<a href="https://twitter.com/share">' +
 						'<span class="fa-stack fa-lg">' +
 							'<i class="fa fa-circle fa-stack-2x"></i>' +
 							'<i class="fa fa-twitter fa-inverse fa-stack-1x"></i>' +
-						'</span>' +
-					'</a>',
-	            	})
-	            	clearInterval(subTimer);
-	            }, 0)
-	        }
-	    }, 1000);
-	};
-	//helper function for adding leading zero when 
-	var leadingZero = function(n) {
-	    if (n < 10 && n >= 0)
-	        return '0' + n;
-	    else
-	        return n;
+						'</span>' +'</a>'
+						})
+					// clears the interval-ception
+					clearInterval(subTimer);
+				}, 0)
+			}
+		}, 1000);
 	};
 
+	//helper function for adding leading zero when seconds goto one digit
+	var leadingZero = function(n) {
+		if (n < 10 && n >= 0){
+			return '0' + n;
+		}else{
+			return n;
+		}
+	};
+
+	//adds li into ul on gameboard
 	function shuffleBoard(n){
 		size = n;
 		var randomSelected = randomSelect(emojiSet, n);
@@ -107,7 +116,11 @@ $(function() {
 		}
 	}//end of shuffle board
 
-	//onClick listener
+	/*
+	* event listeners
+	*/
+
+	//onClick listener, touchstart for screen devices
 	$("ul").on("click touchstart", "li", function(event){
 		event.preventDefault();
 		if (flag){
@@ -130,6 +143,7 @@ $(function() {
 				$("li").addClass("off");
 				// if their value are the same
 				if (compare[0].value === compare[1].value){
+					//the poooop!
 					if (compare[0].value === String.fromCodePoint(0x1F4A9)){
 						score += 100;
 					} else if (mode === "hard"){
@@ -141,39 +155,40 @@ $(function() {
 					//look for the previous' index and let them stay
 					var preIndex = compare[0].index;
 					$current.addClass("correct");
+					$current.find(".back").css("background-color", "#66BB6A" );
 					$current.parent().children().eq(preIndex).addClass("correct");
+					$current.parent().children().eq(preIndex).find(".back").css("background-color",  "#66BB6A");
 					//initialize
 					counter = 0;
 					compare = [];
 					$("li").removeClass('off');
+					// wait for fliping to finish
 					setTimeout(function() {
-						// wait for fliping to finish
-						// console.log($("#board > li.correct").length);
+						// if all li are correct, stop timer, calc score, alert
 						if ($("#board > li.correct").length == size*2){
 							clearInterval(timer);
 							var bonus = (minutes*60 + seconds);
 							score += bonus;
 							//sweet alert plugin
-			            	swal({
-			            	  title: 'GREAT JOB! YOU WIN!',
-			            	  type: 'success',
-			            	  text: '&#x1F601',
-			            	  width: 600,
-			            	  padding: 100,
-			            	  allowOutsideClick: false,
-			            	  onClose: function() {
-			            	  	location.reload();
-			            	  },
-			            	  html:
-			            	 '<h3>Your final score is: ' + score + '</h3>' +
-			            	 '<h3>Your time left is: ' + minutes + ':' + leadingZero(seconds) + '</h3>' +
-			            	 '<a href="https://twitter.com/share">' +
+							swal({
+								title: 'GREAT JOB! YOU WIN!',
+								type: 'success',
+								text: '&#x1F601',
+								width: 500,
+								padding: 50,
+								allowOutsideClick: false,
+								onClose: function() {
+									location.reload();
+								},
+								html:
+								'<h3>Your final score is: <span class="result_score">' + score + '</span></h3>' +
+								'<h3>Remaining Time: <span class="result_score">' + minutes + ':' + leadingZero(seconds) + '</span></h3>' +
+								'<a href="https://twitter.com/share">' +
 								'<span class="fa-stack fa-lg">' +
 									'<i class="fa fa-circle fa-stack-2x"></i>' +
 									'<i class="fa fa-twitter fa-inverse fa-stack-1x"></i>' +
-								'</span>' +
-							'</a>',
-			            	});
+								'</span>' +'</a>'
+							});
 							$("li").removeClass('flip');
 						}
 					}, 350);
@@ -189,9 +204,7 @@ $(function() {
 			}
 		}
 	});//end of onclick listener for emoji
-	/*
-	* All board filp when function triggers
-	*/
+
 	$("#normalMode").click(function(event){
 		mode = "normal"
 		$("#board").empty();
@@ -208,7 +221,8 @@ $(function() {
 		event.preventDefault();
 		$("#board").empty();
 		shuffleBoard(18);
-		$('li.emojicard').css("flex-basis", "13%");
+		// 14% margin + 13% each * 6  = 98% of page
+		$('li.emojicard').css("flex-basis", "14%");
 		$('li.emojicard').css("margin", "1% 1%");
 		$("li").addClass('flip');
 		setTimeout(function() {
@@ -216,11 +230,33 @@ $(function() {
 		}, 500);
 	});
 
-
 	$("#reset").click(function(event){
 		event.preventDefault();
 		location.reload();
 	});
+
+	$("#FAQ").click(function(event){
+		//sweet alert plugin
+		swal({
+		title: 'RULES',
+		width: 600,
+		padding: 20,
+		background: 'url(assets/backgroundLight.png)',
+		html:
+		'<p>- There are total of <span class="result_score">70 emoji faces</span> to randomly shuffle from</p>' +
+		'<p>- When first card is being clicked, the game is on!</p>' +
+		'<p>- Click <span class="result_score">( Normal )</span> or <span class="result_score">( Hardcore )</span> Button to shuffle the borad/Change difficulty</p>' +
+		'<p>- Click <span class="result_score">( <i class="fa fa-repeat" aria-hidden="true"></i> )</span> to reset page during the game</p>' +
+		'<p>***Score Calculation***</p>' +
+		'<p>&#x1F3AE Normal: One Correct match = <span class="result_score">10 points</span> </p>' +
+		'<p>&#x1F525 Hardcore: One Correct match = <span class="result_score">20 points</span> </p>' +
+		'<p>Matching &#x1F4A9 = <span class="result_score">100 points!</span></p>' +
+		'<p>&#x1F4AF Final Score = total points + remainting time</p>' +
+		'<br>' + '<p>Thank you for playing!</p>'
+		})
+	});
+
 	//default
 	shuffleBoard(10);
+
 });
