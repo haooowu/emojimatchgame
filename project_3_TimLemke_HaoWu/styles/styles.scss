@@ -1,9 +1,7 @@
 @import "partials/mixins";
 @import "partials/setup";
 
-* {
-	padding: 0px; 
-	margin: 0px;}
+* {padding: 0px; margin: 0px;}
 
 button:focus {outline:0;}
 
