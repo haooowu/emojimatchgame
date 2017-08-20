@@ -37,7 +37,7 @@ gameMatch.randomSelect = function(array, num) {
 	// while still exists more items in the array, starting at last one
 	while (0 !== pointer) {
 		//select remaining one and point to next
-		var randomPointer = Math.floor(Math.random() * pointer);
+		var randomPointer = Math.floor(Math.random()*pointer);
 		pointer -= 1;
 		var tempVal = array[pointer];
 		//swaping the value with the current one
@@ -49,7 +49,7 @@ gameMatch.randomSelect = function(array, num) {
 /** Docstring **
 * Count down timer for two minuites 
 */
-gameMatch.countDown	 = function(){
+gameMatch.countDown = function(){
 	//setinterval for 1 second 
 	gameMatch.timer = setInterval(function() {
 		//when 60 sec passed, minute - 1, second resets to 59
@@ -86,7 +86,7 @@ gameMatch.countDown	 = function(){
 					},
 					background: 'url(assets/backgroundLight.png)',
 					html:
-					'<h3>Your Final Score is: <span class="result_score">' + gameMatch.score + '</span></h3>'  +
+					'<h3>Your Final Score is: <span class="result_score">' + gameMatch.score + '</span></h3>' +
 					'<a href="https://twitter.com/share">' +
 					'<span class="fa-stack fa-lg">' +
 						'<i class="fa fa-circle fa-stack-2x"></i>' +
@@ -128,7 +128,7 @@ gameMatch.shuffleBoard = function(n){
 	for (var i = 0; i < finalBoard.length; i++) {
 		$('#board').append($(`<li class="emojicard"><div class="front">?</div><div class="back">${finalBoard[i]}</div></li>`));
 	}
-}//end of shuffle board
+}
 /** Docstring **
 * event listeners for click li event
 */
@@ -174,7 +174,7 @@ gameMatch.matchListener = function(){
 					$current.addClass("correct");
 					$current.find(".back").css("background-color", "#66BB6A" );
 					$current.parent().children().eq(preIndex).addClass("correct");
-					$current.parent().children().eq(preIndex).find(".back").css("background-color",  "#66BB6A");
+					$current.parent().children().eq(preIndex).find(".back").css("background-color", "#66BB6A");
 					//initialize
 					gameMatch.counter = 0;
 					gameMatch.compare = [];
@@ -182,7 +182,7 @@ gameMatch.matchListener = function(){
 					// wait for fliping to finish
 					setTimeout(function() {
 						// if all li are correct, stop timer, calc score, alert
-						if ($("#board > li.correct").length == gameMatch.size*2){
+						if ($("#board > li.correct").length === gameMatch.size*2){
 							clearInterval(gameMatch.timer);
 							var bonus = (gameMatch.minutes*60 + gameMatch.seconds);
 							gameMatch.score += bonus;
@@ -190,7 +190,6 @@ gameMatch.matchListener = function(){
 							swal({
 								title: 'GREAT JOB! YOU WIN!',
 								type: 'success',
-								text: '&#x1F601',
 								width: 500,
 								padding: 50,
 								background: 'url(assets/backgroundLight.png)',
@@ -219,8 +218,8 @@ gameMatch.matchListener = function(){
 					gameMatch.compare = [];
 					gameMatch.counter = 0;
 				}
-			}
-		}//end of if statement for matching
+			}//end of counter == 2
+		}//end of if statement 
 	});//end of onclick listener for emo
 }
 /** Docstring **
@@ -294,7 +293,7 @@ gameMatch.clearall = function(){
 	$("#board").empty();
 	if (gameMatch.mode === "hard"){
 		gameMatch.shuffleBoard(18);
-		// 14% margin + 13% each * 6  = 98% of page
+		// 14% margin + 13% each * 6  = 98% of wrapper
 		$('li.emojicard').css("flex-basis", "14%");
 		$('li.emojicard').css("margin", "1% 1%");
 	}else{
