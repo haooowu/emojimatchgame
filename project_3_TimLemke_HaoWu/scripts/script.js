@@ -286,6 +286,7 @@ gameMatch.clearall = function(){
 	gameMatch.minutes = 1;
 	gameMatch.seconds = 60;
 	$("#timerCountdown").html("2:00");
+	$('#timerCountdown').css("color","#ffcc33");
 	//clear score
 	gameMatch.score = 0;
 	$("#scoreCounter").text("00");
