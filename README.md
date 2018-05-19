@@ -1,3 +1,1 @@
-# Hackeryou_Project3
-
-emoji match game
+Emoji match game
